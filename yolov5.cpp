@@ -454,14 +454,14 @@ int main(int argc, char** argv) {
         auto& res = batch_res[0];
         nms(res, &prob[0 * OUTPUT_SIZE], CONF_THRESH, NMS_THRESH);
         // auto& res = batch_res[0];
-        cv::Mat frame = imgs_buffer[0];
-        for (size_t j = 0; j < res.size(); j++) {
-            cv::Rect r = get_rect(frame, res[j].bbox);
-            cv::rectangle(frame, r, cv::Scalar(0x27, 0xC1, 0x36), 2);
-            cv::putText(frame, std::to_string((int)res[j].class_id), cv::Point(r.x, r.y - 1), cv::FONT_HERSHEY_PLAIN, 1.2, cv::Scalar(0xFF, 0xFF, 0xFF), 2);
-        }
-        cv::imshow("img", frame);
-        if (cv::waitKey(1) == 27) break;
+        // cv::Mat frame = imgs_buffer[0];
+        // for (size_t j = 0; j < res.size(); j++) {
+        //     cv::Rect r = get_rect(frame, res[j].bbox);
+        //     cv::rectangle(frame, r, cv::Scalar(0x27, 0xC1, 0x36), 2);
+        //     cv::putText(frame, std::to_string((int)res[j].class_id), cv::Point(r.x, r.y - 1), cv::FONT_HERSHEY_PLAIN, 1.2, cv::Scalar(0xFF, 0xFF, 0xFF), 2);
+        // }
+        // cv::imshow("img", frame);
+        // if (cv::waitKey(1) == 27) break;
         fcount = 0;
     }
 
