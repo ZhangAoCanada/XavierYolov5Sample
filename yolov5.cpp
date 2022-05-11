@@ -477,6 +477,7 @@ int main(int argc, char** argv) {
                 cv::Rect r = get_rect(img, res[j].bbox);
                 // cv::rectangle(img, r, cv::Scalar(0x27, 0xC1, 0x36), 2);
                 // cv::putText(img, std::to_string((int)res[j].class_id), cv::Point(r.x, r.y - 1), cv::FONT_HERSHEY_PLAIN, 1.2, cv::Scalar(0xFF, 0xFF, 0xFF), 2);
+                drawer.drawBox(img, r, int(res[j].class_id));
                 drawer.drawText(img, COCO_CLASSES_NAMES[int(res[j].class_id)], r, int(res[j].class_id));
             }
             // cv::resize(img, img, cv::Size(), 2.0, 2.0, cv::INTER_LINEAR);

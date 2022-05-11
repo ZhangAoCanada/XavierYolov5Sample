@@ -54,6 +54,6 @@ void Draw::drawText(cv::Mat& image, const std::string& class_name,
     double font_scale, int thickness, int baseline)
 {
     cv::Size text_size = cv::getTextSize(class_name, font_flag, font_scale, thickness, &baseline);
-    cv::rectangle(image, rect, _class_colors[color_index], -1);
-    // cv::putText(image, class_name, cv::Point(rect.x + 3, rect.y - 4), font_flag, font_scale, cv::Scalar(255, 255, 255));
+    cv::rectangle(image, cv::Point(rect.x, rect.y - text_size.height - 5), cv::Point(rect.x + text_size.width + 5, rect.y), _class_colors[color_index], -1);
+    cv::putText(image, class_name, cv::Point(rect.x + 3, rect.y - 4), font_flag, font_scale, cv::Scalar(255, 255, 255));
 }
