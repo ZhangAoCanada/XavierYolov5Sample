@@ -454,7 +454,7 @@ int main(int argc, char** argv) {
         auto& res = batch_res[0];
         nms(res, &prob[0 * OUTPUT_SIZE], CONF_THRESH, NMS_THRESH);
         // auto& res = batch_res[0];
-        cv::Mat img = imgs_buffer[0];
+        // cv::Mat img = imgs_buffer[0];
         for (size_t j = 0; j < res.size(); j++) {
             cv::Rect r = get_rect(img, res[j].bbox);
             cv::rectangle(img, r, cv::Scalar(0x27, 0xC1, 0x36), 2);
