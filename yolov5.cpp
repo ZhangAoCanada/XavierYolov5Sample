@@ -8,6 +8,9 @@
 #include "calibrator.h"
 #include "preprocess.h"
 
+#include "coco_config.h"
+#include "draw.h"
+
 #define USE_FP16  // set USE_INT8 or USE_FP16 or USE_FP32
 #define DEVICE 0  // GPU id
 #define NMS_THRESH 0.4
@@ -430,6 +433,9 @@ int main(int argc, char** argv) {
     // cam.set(3, 640);
     // cam.set(4, 480);
 
+    int numClasses = COCO_CLASSES_NAMES.size();
+    Draw drawer(numClasses);    
+
     // for (int f = 0; f < (int)file_names.size(); f++) {
     while (true)
     {
@@ -469,8 +475,9 @@ int main(int argc, char** argv) {
             cv::Mat img = imgs_buffer[b];
             for (size_t j = 0; j < res.size(); j++) {
                 cv::Rect r = get_rect(img, res[j].bbox);
-                cv::rectangle(img, r, cv::Scalar(0x27, 0xC1, 0x36), 2);
-                cv::putText(img, std::to_string((int)res[j].class_id), cv::Point(r.x, r.y - 1), cv::FONT_HERSHEY_PLAIN, 1.2, cv::Scalar(0xFF, 0xFF, 0xFF), 2);
+                // cv::rectangle(img, r, cv::Scalar(0x27, 0xC1, 0x36), 2);
+                // cv::putText(img, std::to_string((int)res[j].class_id), cv::Point(r.x, r.y - 1), cv::FONT_HERSHEY_PLAIN, 1.2, cv::Scalar(0xFF, 0xFF, 0xFF), 2);
+                drawer.drawText(img, COCO_CLASSES_NAMES[int(res[j].class_id)], r, int(res[j].class_id));
             }
             // cv::resize(img, img, cv::Size(), 2.0, 2.0, cv::INTER_LINEAR);
             cv::imshow("frame", img);

@@ -30,7 +30,7 @@ target_link_libraries(myplugins nvinfer cudart)
 find_package(OpenCV)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
-cuda_add_executable(yolov5 calibrator.cpp yolov5.cpp preprocess.cu)
+cuda_add_executable(yolov5 calibrator.cpp yolov5.cpp preprocess.cu coco_config.h draw.cpp draw.h)
 
 target_link_libraries(yolov5 nvinfer)
 target_link_libraries(yolov5 cudart)
