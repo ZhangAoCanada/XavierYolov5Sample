@@ -473,7 +473,7 @@ int main(int argc, char** argv) {
                 cv::putText(img, std::to_string((int)res[j].class_id), cv::Point(r.x, r.y - 1), cv::FONT_HERSHEY_PLAIN, 1.2, cv::Scalar(0xFF, 0xFF, 0xFF), 2);
             }
             // cv::imwrite("_" + file_names[f - fcount + 1 + b], img);
-            cv2.resize(img, img, NULL, 2.0, 2.0, cv::INTER_LINEAR);
+            cv::resize(img, img, NULL, 2.0, 2.0, cv::INTER_LINEAR);
             cv::imshow("frame", img);
         }
         fcount = 0;
