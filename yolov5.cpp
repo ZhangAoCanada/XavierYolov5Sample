@@ -427,7 +427,9 @@ int main(int argc, char** argv) {
         std::cerr << "Camera not found." << std::endl;
         return -1;
     }
-    while (ture)
+    cam.set(3, 640);
+    cam.set(4, 480);
+    while (true)
     {
         cv::Mat img;
         cam >> img;
