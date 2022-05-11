@@ -51,7 +51,7 @@ void Draw::drawText(cv::Mat& image, const std::string& class_name,
 }
 
 void Draw::drawText(cv::Mat& image, const std::string& class_name,
-    const cv::Rect& rect, int& color_index, int font_flag,
+    const cv::Rect& rect, int color_index, int font_flag,
     double font_scale, int thickness, int baseline)
 {
     cv::Size text_size = cv::getTextSize(class_name, font_flag, font_scale, thickness, &baseline);

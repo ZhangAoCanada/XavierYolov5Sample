@@ -26,7 +26,7 @@ public:
 		int& color_index, int font_flag = 0, double font_scale = 0.4, 
 		int thickness = 1, int baseline = 0);
 	void drawText(cv::Mat& image, const std::string& class_name, 
-		const cv::Rect& rect, int& color_index, int font_flag = 0,
+		const cv::Rect& rect, int color_index, int font_flag = 0,
 		double font_scale = 0.4, int thickness = 1, int baseline = 0);
 };
 
