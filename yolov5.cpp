@@ -427,8 +427,8 @@ int main(int argc, char** argv) {
         std::cerr << "Camera not found." << std::endl;
         return -1;
     }
-    cam.set(3, 640);
-    cam.set(4, 480);
+    // cam.set(3, 640);
+    // cam.set(4, 480);
 
     // for (int f = 0; f < (int)file_names.size(); f++) {
     while (true)
@@ -472,8 +472,7 @@ int main(int argc, char** argv) {
                 cv::rectangle(img, r, cv::Scalar(0x27, 0xC1, 0x36), 2);
                 cv::putText(img, std::to_string((int)res[j].class_id), cv::Point(r.x, r.y - 1), cv::FONT_HERSHEY_PLAIN, 1.2, cv::Scalar(0xFF, 0xFF, 0xFF), 2);
             }
-            // cv::imwrite("_" + file_names[f - fcount + 1 + b], img);
-            cv::resize(img, img, cv::Size(), 2.0, 2.0, cv::INTER_LINEAR);
+            // cv::resize(img, img, cv::Size(), 2.0, 2.0, cv::INTER_LINEAR);
             cv::imshow("frame", img);
         }
         fcount = 0;
