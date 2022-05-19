@@ -430,8 +430,8 @@ int main(int argc, char** argv) {
         std::cerr << "Camera not found." << std::endl;
         return -1;
     }
-    // cam.set(3, 640);
-    // cam.set(4, 480);
+    cam.set(3, 640);
+    cam.set(4, 480);
 
     int numClasses = COCO_CLASSES_NAMES.size();
     Draw drawer(numClasses);    
