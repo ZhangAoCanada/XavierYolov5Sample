@@ -347,10 +347,10 @@ int main(int argc, char** argv) {
     file.close();
 
     std::vector<std::string> file_names;
-    if (read_files_in_dir(img_dir.c_str(), file_names) < 0) {
-        std::cerr << "read_files_in_dir failed." << std::endl;
-        return -1;
-    }
+    /*if (read_files_in_dir(img_dir.c_str(), file_names) < 0) {*/
+        /*std::cerr << "read_files_in_dir failed." << std::endl;*/
+        /*return -1;*/
+    /*}*/
 
     static float prob[BATCH_SIZE * OUTPUT_SIZE];
     IRuntime* runtime = createInferRuntime(gLogger);
